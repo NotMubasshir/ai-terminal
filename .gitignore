@@ -1,0 +1,23 @@
+# Build output
+build/
+out/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Local configuration / logs
+.ai-terminal/
+config.json
+audit.log
+audit.log.1
+
+# Generated packages
+*.zip
+*.7z
+
+# OS/editor
+Thumbs.db
+.DS_Store
