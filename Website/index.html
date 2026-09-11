@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI Terminal — a security-first AI coding and automation terminal for Windows.">
+  <title>AI Terminal — AI coding agent for Windows</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="brand-mark">›_</span><span>AI Terminal</span></a>
+  <nav><a class="active" href="index.html">Home</a><a href="docs/">Docs</a><a href="docs/tools.html">Tools</a><a href="docs/security.html">Security</a><a href="docs/architecture.html">Architecture</a><a href="https://github.com/NotMubasshir/ai-terminal">GitHub ↗</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div><p class="eyebrow">WINDOWS · C++20 · v1.0.0</p><h1>A coding agent that <em>does the work</em> without taking control away from you.</h1>
+  <p class="lead">AI Terminal turns natural-language goals into bounded, observable development tasks. It can inspect a project, edit files, build, test, diagnose failures and recover — with the application, not the model, in charge of execution.</p>
+  <div class="actions"><a class="button primary" href="docs/">Read the documentation</a><a class="button" href="https://github.com/NotMubasshir/ai-terminal">View source ↗</a></div></div>
+  <div class="terminal-card"><div class="terminal-top"><span></span><span></span><span></span><small>AI TERMINAL</small></div><div class="terminal-body"><div class="muted">$ ai-terminal</div><div class="prompt">&gt; Fix the build errors and run the tests.</div><div class="line"><b>PROJECT</b> C++ / CMake / Git</div><div class="line"><b>PLAN</b> Inspect → Build → Patch → Test</div><div class="line warn"><b>PERMISSION</b> 2 source files need changes</div><div class="approval">[ Allow ] &nbsp; [ Deny ]</div><div class="line ok">✓ Waiting for your decision</div></div></div>
+</div></section>
+<section class="strip"><div class="wrap stats"><div><strong>Security first</strong><span>AI output is untrusted input.</span></div><div><strong>Real execution</strong><span>Builds and tests are actually run.</span></div><div><strong>Windows native</strong><span>Processes, paths and PowerShell handled properly.</span></div><div><strong>Bounded autonomy</strong><span>Limits, cancellation and permissions.</span></div></div></section>
+<section class="section"><div class="wrap"><p class="eyebrow">WHY AI TERMINAL</p><div class="two-col"><div><h2>Not a chatbot glued to a shell.</h2></div><div><p>AI Terminal is built around an agent runtime and a security choke point. A model can propose a tool call, but it cannot directly execute commands or rewrite files. Every action passes through validation, deterministic risk policy and permission checks.</p><p>The result is a terminal that can be genuinely useful for development work while keeping its most consequential decisions visible to the person at the keyboard.</p></div></div></div></section>
+<section class="section paper"><div class="wrap"><p class="eyebrow">THE CORE LOOP</p><div class="flow"><span>User goal</span><i>→</i><span>Plan</span><i>→</i><span>Tool call</span><i>→</i><span>Validate</span><i>→</i><span>Permission</span><i>→</i><span>Execute</span><i>→</i><span>Verify</span></div></div></section>
+<section class="section"><div class="wrap cards"><article><span class="num">01</span><h3>Build-aware</h3><p>Detects CMake, Visual Studio/MSBuild and Ninja instead of assuming one build command.</p></article><article><span class="num">02</span><h3>Safe editing</h3><p>Exact-context patches reject ambiguous changes and keep workspace boundaries enforced.</p></article><article><span class="num">03</span><h3>Observable</h3><p>Tool calls, permissions, execution results and failures are visible and auditable.</p></article><article><span class="num">04</span><h3>Recoverable</h3><p>Bounded retry loops let the agent diagnose compiler failures and try again without running forever.</p></article></div></section>
+<section class="section cta"><div class="wrap"><p class="eyebrow">START HERE</p><h2>Build it, inspect it, then decide how much autonomy you want.</h2><div class="actions"><a class="button primary" href="docs/getting-started.html">Getting started</a><a class="button" href="docs/security.html">Read the security model</a></div></div></section>
+</main>
+<footer><div class="wrap footer"><span>AI Terminal · v1.0.0</span><span>Open source Windows AI agent</span><a href="https://github.com/NotMubasshir/ai-terminal">GitHub ↗</a></div></footer>
+<script src="assets/site.js"></script>
+</body></html>
