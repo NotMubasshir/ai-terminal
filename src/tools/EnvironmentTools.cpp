@@ -1,0 +1,9 @@
+// SPDX-License-Identifier: Apache-2.0
+#include "tools/EnvironmentTools.hpp"
+#include <windows.h>
+#include <cstdlib>
+#include <nlohmann/json.hpp>
+namespace ai_terminal::tools {namespace {
+class Env final:public Tool{public:std::string name()const override{return"get_environment";}std::string description()const override{return"Return a safe allowlisted subset of environment variables; secrets are omitted.";}nlohmann::json schema()const override{return{{"type","object"},{"properties",nlohmann::json::object()}};}security::RiskLevel risk()const override{return security::RiskLevel::SAFE;}ToolResult execute(const nlohmann::json&)override{nlohmann::json j=nlohmann::json::object();for(const char*n:{"PATH","PATHEXT","COMSPEC","TEMP","TMP","USERPROFILE","USERNAME","ProgramFiles","ProgramFiles(x86)","SystemRoot"}){char*v=nullptr;size_t z=0;if(!_dupenv_s(&v,&z,n)&&v){j[n]=std::string(v,z?z-1:0);free(v);}}j.erase("GEMINI_API_KEY");return{true,j.dump(2)};}};
+class Sys final:public Tool{public:std::string name()const override{return"get_system_info";}std::string description()const override{return"Return Windows version, architecture and memory information.";}nlohmann::json schema()const override{return{{"type","object"},{"properties",nlohmann::json::object()}};}security::RiskLevel risk()const override{return security::RiskLevel::SAFE;}ToolResult execute(const nlohmann::json&)override{SYSTEM_INFO s{};GetNativeSystemInfo(&s);MEMORYSTATUSEX m{};m.dwLength=sizeof(m);GlobalMemoryStatusEx(&m);nlohmann::json j={{"processor_architecture",s.wProcessorArchitecture},{"processor_count",s.dwNumberOfProcessors},{"page_size",s.dwPageSize},{"memory_total_bytes",m.ullTotalPhys},{"memory_available_bytes",m.ullAvailPhys}};return{true,j.dump(2)};}};}
+std::unique_ptr<Tool> make_environment_tool(){return std::make_unique<Env>();}std::unique_ptr<Tool> make_system_info_tool(){return std::make_unique<Sys>();}}
